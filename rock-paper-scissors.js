@@ -51,10 +51,6 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
-//let playerSelection = "papeR";
-
-//console.log);
-
 //get your choice
     //either direct code input or promt
     //first user input by declaring const
@@ -73,7 +69,6 @@ function game() {
     let myScore = 0;
     let pcScore = 0;
     while (myScore < 5 && pcScore < 5) {
-    //problem - counter goes to 6
         let playerSelection = prompt("Rock, paper or scissors?");
         let computerSelection = getComputerChoice();
         switch (playRound(playerSelection, computerSelection)) {
@@ -117,6 +112,5 @@ function game() {
     }
 }
 
-//console.log);
 
 console.log(game());
