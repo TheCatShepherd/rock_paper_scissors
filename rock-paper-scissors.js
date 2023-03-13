@@ -30,7 +30,7 @@ function getComputerChoice() {
     //return string with winner and result
 
 function playRound(playerSelection,computerSelection) {
-    let me = playerSelection.toLowerCase();
+    let me = playerSelection.toLowerCase(); //exception - undefined if user doesn't enter anything = null
     let pc = computerSelection;
     if (me === pc) {
         return "It's a tie!";
@@ -47,14 +47,76 @@ function playRound(playerSelection,computerSelection) {
     } else if ((me === "scissors") && (pc === "paper")){
         return "You win! Scissors beat paper";
     } else {
-        return "Something went wrong!";
+        return "Something went wrong! Please chose rock, paper or scissors";
     }
 }
 
-let playerSelection = "papeR";
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
+//let playerSelection = "papeR";
+
+//console.log);
 
 //get your choice
     //either direct code input or promt
     //first user input by declaring const
+
+//Create function game()
+//Call playRound inside game()
+//Play 5 rounds
+    //Use for loop
+//Keep score
+    //Create variables for my score and pc score
+    //Add 1 for win, add 1 to pc for lose
+//Declare winner
+//Use prompt for user input
+
+function game() {
+    let myScore = 0;
+    let pcScore = 0;
+    while (myScore < 5 && pcScore < 5) {
+    //problem - counter goes to 6
+        let playerSelection = prompt("Rock, paper or scissors?");
+        let computerSelection = getComputerChoice();
+        switch (playRound(playerSelection, computerSelection)) {
+            case "It's a tie!":
+                console.log("It's a tie!");
+                break;
+            case "You lose! Paper beats Rock":
+                pcScore++;
+                console.log("You lose! Paper beats Rock");
+                break;
+            case "You win! Rock beats Scissors":
+                myScore++;
+                console.log("You win! Rock beats Scissors");
+                break;
+            case "You win! Paper beats Rock":
+                myScore++;
+                console.log("You win! Paper beats Rock");
+                break;
+            case "You lose! Scissors beat Paper":
+                pcScore++;
+                console.log("You lose! Scissors beat Paper");
+                break;
+            case "You lose! Rock beats Scissors":
+                pcScore++;
+                console.log("You lose! Rock beats Scissors");
+                break;
+            case "You win! Scissors beat paper":
+                myScore++;
+                console.log("You win! Scissors beat paper");
+                break;
+            case "Something went wrong! Please chose rock, paper or scissors":
+                console.log("Something went wrong! Please chose rock, paper or scissors");
+                break;
+    }
+        console.log(myScore + " / " + pcScore)
+    }
+    if (myScore > pcScore) {
+        return "You won! Your score is human " + myScore + " / computer " + pcScore;
+    } else {
+        return "You lost! Your score is human " + myScore + " / computer " + pcScore;
+    }
+}
+
+//console.log);
+
+console.log(game());
