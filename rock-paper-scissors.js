@@ -14,13 +14,18 @@ function getComputerChoice() {
 }
 
 //Create div to display results
-const container = document.querySelector('.result');
+const container = document.querySelector('#result');
+
+function clearField() {
+    document.getElementById("result").textContent = "";
+}
 
 
 //get user input from button click
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        clearField();
         const play = document.createElement('p');
         play.textContent = playRound(button.id, getComputerChoice());
         container.appendChild(play);
