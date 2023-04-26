@@ -13,7 +13,23 @@ function getComputerChoice() {
     }
 }
 
+//Create div to display results
+const container = document.querySelector('.result');
 
+
+//get user input from button click
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const play = document.createElement('p');
+        play.textContent = playRound(button.id, getComputerChoice());
+        container.appendChild(play);
+    });
+});
+
+
+
+//playerSelection linked to button click
 function playRound(playerSelection,computerSelection) {
     let me = playerSelection.toLowerCase(); 
     let pc = computerSelection;
@@ -36,11 +52,11 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
-function game() {
+/*function game() {
     let myScore = 0;
     let pcScore = 0;
     while (myScore < 5 && pcScore < 5) {
-        let playerSelection = prompt("Rock, paper or scissors?");
+        //let playerSelection = button.id;
         let computerSelection = getComputerChoice();
         switch (playRound(playerSelection, computerSelection)) {
             case "It's a tie!":
@@ -84,4 +100,7 @@ function game() {
 }
 
 
-console.log(game());
+console.log(game());*/
+
+//Remains - delete previous result of  playRound() in div
+//        - connect buttons to game()
