@@ -1,11 +1,4 @@
-//play game of rock-paper-scissors against computer
-
-//get computer choice
-    //get random num between 1 and 3
-    //assign each num to a possible play
-        //function that calls getRandomNum,
-        //depending on the result, return rock, paper or scissors
-        //return play
+//Rock-paper-scissors against computer
 
 function getComputerChoice() {
     let x = Math.floor(Math.random() * (3) + 1)
@@ -19,18 +12,10 @@ function getComputerChoice() {
         return "Something went wrong";
     }
 }
- //console.log(getComputerChoice())
 
-
-   
-
-//compare both choices
-    //make playerSelection lowerCase
-    //make if else statements for every possible play
-    //return string with winner and result
 
 function playRound(playerSelection,computerSelection) {
-    let me = playerSelection.toLowerCase(); //exception - undefined if user doesn't enter anything = null
+    let me = playerSelection.toLowerCase(); 
     let pc = computerSelection;
     if (me === pc) {
         return "It's a tie!";
@@ -50,20 +35,6 @@ function playRound(playerSelection,computerSelection) {
         return "Something went wrong! Please chose rock, paper or scissors";
     }
 }
-
-//get your choice
-    //either direct code input or promt
-    //first user input by declaring const
-
-//Create function game()
-//Call playRound inside game()
-//Play 5 rounds
-    //Use for loop
-//Keep score
-    //Create variables for my score and pc score
-    //Add 1 for win, add 1 to pc for lose
-//Declare winner
-//Use prompt for user input
 
 function game() {
     let myScore = 0;
