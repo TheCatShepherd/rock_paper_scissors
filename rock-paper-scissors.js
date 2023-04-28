@@ -31,16 +31,23 @@ function clearField() {
         clearField();
         let me = button.id;
         let pc = getComputerChoice()
+        
         let play = document.createElement('p');
         let result = playRound(me, pc);
         play.textContent = result;
         resultDisplay.appendChild(play);
+        
         let meVsPc = document.createElement('p');
-        meVsPc.textContent = "You played: " + me + " / " + "Computer played: " + pc;
+        meVsPc.textContent = `You played: ${me} / Computer played: ${pc}`;
         resultDisplay.appendChild(meVsPc);
+        
         let score = document.createElement('p');
         score.textContent = keepScore(result);
         scoreDisplay.appendChild(score);
+
+        let winner = document.createElement('p');
+        winner.textContent = declareWinner();
+        scoreDisplay.appendChild(winner);
     })
 })
 
@@ -69,17 +76,23 @@ function keepScore(result) {
         myScore++;
     } else if (result == "You lose!") {
         pcScore++;
-    } if (myScore == 5) {
-        myScore = 0;
-        pcScore = 0;
-        return "Would you like to play an other game?";
-    } else if (pcScore == 5) {
-        myScore = 0;
-        pcScore = 0;
-        return "Would you like to play an other game?";
-    }
-    
-    return myScore + "/" + pcScore
+    } 
+    return `${myScore} / ${pcScore}`;
 }
 
-//make the score stay on screen when someone reaches 5
+function declareWinner() {
+    if (myScore == 5 || pcScore == 5) {
+        return "Would you like to play another game?"
+    }
+}
+
+let gameOver = declareWinner();
+
+function resetScore(gameOver) {
+    if (gameOver) {
+        myScore = 0;
+        pcScore = 0;
+    }
+}
+
+//Make counter go back to zero
