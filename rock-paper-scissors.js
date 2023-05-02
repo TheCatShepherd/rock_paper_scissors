@@ -82,17 +82,8 @@ function keepScore(result) {
 
 function declareWinner() {
     if (myScore == 5 || pcScore == 5) {
+        myScore =  0;
+        pcScore = 0;
         return "Would you like to play another game?"
     }
 }
-
-let gameOver = declareWinner();
-
-function resetScore(gameOver) {
-    if (gameOver) {
-        myScore = 0;
-        pcScore = 0;
-    }
-}
-
-//Make counter go back to zero
